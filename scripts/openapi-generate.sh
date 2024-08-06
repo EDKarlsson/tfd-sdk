@@ -63,7 +63,11 @@ do
   yml_file=$(find "$spec_dir" -name "*$spec*" -exec basename {} \;)
 
   sdk_path="${output_dir}/${lang}/${spec}"
-  pkg_name=${pkg_name}_${spec}_client
+  if [[ -n "${plg_name}" ]]; then
+    pkg_name=${pkg_name}_${spec}
+  else
+    pkg_name=${spec}
+  fi
 
   if [[ $command == "generate" ]]; then
     # generate api sdk

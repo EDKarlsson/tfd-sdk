@@ -4,9 +4,15 @@ version = "0.1.0"
 description = "Collection of tools and sdks to work with Nexon's TFD API"
 authors = ["Erik Karlsson <erikdkarlsson8@gmail.com>"]
 readme = "README.md"
+packages = [
+    {include = "tfd_sdk/clients/python/meta"},
+    {include = "tfd_sdk/clients/python/account"},
+    {include = "tfd_sdk/clients/python/module_recommendation"},
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
+pydantic = "^2.8.2"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.11.1"
