@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "tfd-sdk"
+version = "0.1.0"
+description = "Collection of tools and sdks to work with Nexon's TFD API"
+authors = ["Erik Karlsson <erikdkarlsson8@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.11.1"
+setuptools = "^72.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
