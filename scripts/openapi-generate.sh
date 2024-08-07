@@ -71,7 +71,7 @@ do
 
   if [[ $command == "generate" ]]; then
     # generate api sdk
-    openapi-generator generate -i "${spec_dir}/${yml_file}" -g "${lang}" -o "$sdk_path" --package-name "${pkg_name}"
+    openapi-generator generate -i "${spec_dir}/${yml_file}" -g "${lang}" -o "$sdk_path" --package-name "${spec}" -s
 
     # fix authors field
     toml_file="${sdk_path}/pyproject.toml"

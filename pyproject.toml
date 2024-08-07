@@ -5,19 +5,26 @@ description = "Collection of tools and sdks to work with Nexon's TFD API"
 authors = ["Erik Karlsson <erikdkarlsson8@gmail.com>"]
 readme = "README.md"
 packages = [
-    {include = "tfd_sdk/clients/python/meta"},
-    {include = "tfd_sdk/clients/python/account"},
-    {include = "tfd_sdk/clients/python/module_recommendation"},
+    #    {include = "tfd_sdk/clients/meta"},
+    #    {include = "tfd_sdk/clients/user"},
+    #    {include = "tfd_sdk/clients/module_recommendation"},
 ]
 
 [tool.poetry.dependencies]
 python = "^3.12"
 pydantic = "^2.8.2"
+pyyaml = "^6.0.2"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.11.1"
 setuptools = "^72.1.0"
+python-dotenv = "^1.0.1"
+ipython = { version = "^8.26.0", optional = true }
+black = "^24.8.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+format-api-spec = "tfd_sdk.util.format_api_spec:main"

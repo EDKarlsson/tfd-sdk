@@ -1,0 +1,8 @@
+info:
+    title: The First Descendant $SPEC API
+    contact:
+        name: Nexon
+        email: help_openapi@nexon.co.kr
+tags:
+    name: Date Versioned
+    description: $YEAR-$MONTH-$DAY
