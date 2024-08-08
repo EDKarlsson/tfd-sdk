@@ -1,17 +1,17 @@
 #!/bin/bash
 
-specs=(meta account module)
-spec_dir=${PWD}/spec
+specs=(meta user recommendation)
+spec_dir=${PWD}/openapi
 
 # default
 command=
-pkg_owner=tfd
+pkg_owner=tfd_sdk
 output_dir=${PWD}/out
 lang=python
 dry=
 verbose=
+all=
 
-# for arg in "$@"
 while [ -n "$1" ]; do
   case "$1" in
   -p|--package)
@@ -29,6 +29,8 @@ while [ -n "$1" ]; do
   -v|--verbose)
     verbose=true
     ;;
+  --all)
+    ;;
   generate|install)
     command=$1
     ;;
@@ -42,7 +44,7 @@ if [[ $verbose ]]; then
     echo " - command    = ${command}"
     echo " - pkg_owner  = ${pkg_owner}"
     echo " - output_dir = ${output_dir}"
-    echo " - language   = ${language}"
+    echo " - language   = ${lang}"
     echo " - dry        = ${dry}"
 fi
 
@@ -62,12 +64,14 @@ for spec in "${specs[@]}"
 do
   yml_file=$(find "$spec_dir" -name "*$spec*" -exec basename {} \;)
 
-  sdk_path="${output_dir}/${language}/${pkg_owner}/${spec}"
-  pkg_name=${pkg_owner}_${spec}_client
+#  sdk_path="${output_dir}/${lang}/${pkg_owner}/${spec}"
+#  pkg_name=${pkg_owner}_${spec}_client
+  sdk_path="${output_dir}/${lang}/${pkg_owner}"
+  pkg_name=${spec}
 
   if [[ $command == "generate" ]]; then
     # generate api sdk
-    openapi-generator generate -i "${spec_dir}/${yml_file}" -g "${lang}" -o "$sdk_path" --package-name "${pkg_name}"
+    openapi-generator generate -i "${spec_dir}/${yml_file}" -g "${lang}" -o "$sdk_path" --package-name "${pkg_name}" -s
   elif [[ $command == "install" ]]; then
 
     # fix authors field

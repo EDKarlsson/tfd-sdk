@@ -1,9 +1,9 @@
 openapi: 3.0.3
 info:
-    title: The First Descendant API
+    title: The First Descendant Module Recommendation API
     version: 1.0.0
     contact:
-        name: help_openapi@nexon.co.kr
+        name: Nexon
     description: |-
         - Game data for The First Descendant becomes available after 10 minutes on average.
         - Please note that the OUID may change due to game content updates. Be cautious when renewing services based on the OUID.
@@ -14,6 +14,8 @@ servers:
 tags:
     -   name: Recommendation
         description: Module recommendation
+    -   name: Date Versioned
+        description: 2024-08-03
 
 paths:
     /tfd/v1/recommendation/module:

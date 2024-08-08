@@ -1,9 +1,9 @@
 openapi: 3.0.3
 info:
-    title: The First Descendant API
+    title: The First Descendant Metadata API
     version: 1.0.0
     contact:
-        name: help_openapi@nexon.co.kr
+        name: Nexon
 servers:
     -   url: 'https://open.api.nexon.com'
 tags:
